@@ -1,0 +1,182 @@
+$color-dark: #333
+$color-half-dark: #666
+$color-light: #eee
+
+$distance: 0.5mm
+$field-height: 7mm
+$field-width: 8mm
+$border-width: 0.5mm
+
+body
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+    
+.page
+    margin: 1mm    
+
+*
+    box-sizing: border-box
+
+
+.border, .field, .label 
+    border: $border-width solid $color-dark
+    border-radius: 1mm
+    font-size: 11pt
+
+
+.logo 
+    margin: $distance
+    padding: $distance
+    font-size: 1.5rem
+    font-weight: bold
+    flex-grow: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    text-align: center
+
+
+.overview                     
+    margin: $distance
+
+
+.row 
+    display: flex
+    align-items: center
+    margin-top: $distance
+    &.cols-top
+        align-items: start
+
+
+.field 
+    height: $field-height
+    width: $field-width
+    
+    margin: 0 $distance 0 $distance
+
+    flex-grow: 1
+    text-align: center                
+    color: $color-dark
+
+    &.line
+        border-top: none
+        border-left: none
+        border-right: none
+
+    &.temp 
+        border: $border-width dashed $color-dark
+        .above 
+            color: $color-half-dark
+
+    &.label 
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center            
+
+        padding: $distance
+
+        font-size: 12pt
+        background-color: $color-dark
+        color: $color-light
+
+        small
+            font-size: 0.5rem
+                        
+    .annotate
+        margin-bottom: -0.9rem
+        font-size: 0.5rem
+        height: 0.8rem
+        text-align: left
+    
+    .above                     
+        margin-top: -0.9rem
+        font-size: 0.5rem
+        height: 0.8rem
+        display: flex
+        align-items: center
+        justify-content: center
+        border-bottom-left-radius: 0
+        border-bottom-right-radius: 0
+        &.label
+            background-color: $color-dark
+            color: $color-light
+
+.spacer
+    width: $field-width
+    
+.vspace 
+    margin-top: 0.5 * $field-height
+
+.vspace-large
+    margin-top: $field-height
+
+.wide 
+    width: $field-width * 2
+
+.ultra-wide 
+    width: $field-width * 4
+
+.uber-wide 
+    width: $field-width * 8
+
+.ultra-high
+    min-height: $field-height * 3.2
+
+.g1 
+    flex-grow: 1
+
+.g2 
+    flex-grow: 2
+
+.cols
+    display: flex
+    flex-direction: row
+
+.attributes
+    .label
+        width: 2 * $field-width
+
+.saves
+    .label
+        width: 3 * $field-width
+
+.attack
+    .label
+        width: 3.5 * $field-width
+
+.skills
+    margin-left: 5 * $distance
+
+    .field
+        height: 0.78 * $field-height
+
+    .skill
+        width: 4 * $field-width
+        font-size: 0.7rem
+        &.small
+            font-size: 0.5rem
+
+        &.untrained:after
+            content: "!"
+    
+    .skill-attribute
+        font-size: 0.5rem
+        width: 0.7 * $field-width
+
+    .check
+        border: 0.2mm solid black
+        width: 0.4 * $field-width
+        height: 0.4 *$field-width
+        margin-right: 2* $distance
+
+@media print
+    @page
+        size: A4
+        margin: 2mm
+    
+    body
+        width: 210mm
+        height: 297mm
+
+    .page
+        page-break-before: always

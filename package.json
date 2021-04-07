@@ -1,0 +1,11 @@
+{
+    "name": "dnd-character-record-sheet",
+    "version": "0.1.0",
+    "devDependencies": {
+        "sass": "^1.32.8"
+    },
+    "scripts": {
+        "build": "sass styles/index.sass styles.css",
+        "start": "sass --watch styles/index.sass styles.css"
+    }
+}
