@@ -1,14 +1,17 @@
 {
     "name": "dnd-character-record-sheet",
-    "version": "0.1.0",
+    "version": "0.2.1-pre",
     "devDependencies": {
         "reset-css": "^5.0.1",
+        "puppeteer": "^8.0.0",
         "sass": "^1.32.8",
-        "puppeteer": "^8.0.0"
+        "gulp-cli": "^2.3.0",
+        "gulp": "^4.0.2",
+        "gulp-sass": "^4.1.0"
     },
     "scripts": {
-        "build": "sass styles/index.sass styles.css",
-        "start": "sass --watch styles/index.sass styles.css",
-        "create-pdf": "node ./.scripts/create-pdf.js"
+        "build": "gulp sass",
+        "start": "gulp sass:watch",
+        "create-pdf": "gulp pdf"
     }
 }

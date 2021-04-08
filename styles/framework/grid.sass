@@ -1,12 +1,13 @@
 .page
     margin: $distance
 
-.border, .field, .label 
+.border
     border: $border-width solid $color-dark
     border-radius: 3 * $border-width
-    font-size: 11pt
-
+    
 .field 
+    @extend .border
+
     height: $field-height
     
     margin: $distance $distance 0 $distance
@@ -18,7 +19,7 @@
     color: $color-dark
 
     &.line
-        border-top: none
+        border-top-color: transparent
         border-left: none
         border-right: none
 
@@ -26,40 +27,45 @@
         border: $border-width dashed $color-dark
         .above 
             color: $color-half-dark
-
-    &.label 
-        display: flex
-        flex-direction: column
-        align-items: center
-        justify-content: center            
-
-        padding: $distance
-
-        font-size: 12pt
-        background-color: $color-dark
-        color: $color-light
-
-        small
-            font-size: 0.5rem
                         
-    .annotate
-        margin-bottom: -0.9rem
+    .tag
         font-size: 0.5rem
         height: 0.8rem
         text-align: left
     
-    .above                     
-        margin-top: -0.9rem
+        &.above                     
+            margin-top: -0.8rem
+            display: flex
+            align-items: center
+            justify-content: center
+            &.dark
+                @extend .border
+                border-bottom-left-radius: 0
+                border-bottom-right-radius: 0
+                background-color: $color-dark
+                color: $color-light
+
+.label 
+    @extend .field
+
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center            
+
+    padding: $distance
+
+    font-size: 12pt
+    background-color: $color-light
+    color: $color-dark
+
+    &.dark
+        background-color: $color-dark
+        color: $color-light
+
+
+    small
         font-size: 0.5rem
-        height: 0.8rem
-        display: flex
-        align-items: center
-        justify-content: center
-        border-bottom-left-radius: 0
-        border-bottom-right-radius: 0
-        &.label
-            background-color: $color-dark
-            color: $color-light
 
 .spacer
     flex-grow: 1

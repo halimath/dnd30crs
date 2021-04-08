@@ -1,61 +1,7 @@
-@import "reset-css.css"
+@import "./framework/index"
 
-$color-dark: #333
-$color-half-dark: #666
-$color-light: #eee
-
-$distance: 0.1rem
-$field-height: 1.6rem
-$border-width: 0.1rem
-
-body
-    font-family: "Ubuntu"
-    font-size: 11px
-    line-height: 0.7rem
-    
-*
-    box-sizing: border-box
-
-@media screen
-    body
-        max-width: 1280px
-        margin: auto
-    
-
-@media print
-    @page
-        size: A4
-    
-    body
-        width: 210mm
-        height: 297mm
-        padding: 4mm
-
-    .page
-        page-break-before: always
-
-footer
-    position: fixed
-    bottom: 2mm
-    width: 100%
-    text-align: center
-    font-size: 0.4rem    
-
-@import "./grid"
-
-.logo 
-    margin: $distance
-    padding: $distance
-    font-size: 1.5rem
-    line-height: 1.8rem
-    font-weight: bold
-    flex-grow: 0
-    display: flex
-    justify-content: center
-    align-items: center
-    text-align: center
-
-.overview                     
+.overview
+    @extends .block
     margin: $distance    
 
 .attributes
