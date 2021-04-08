@@ -8,6 +8,10 @@ The sheet is created using HTML and custom CSS (making massive use of flexbox).
 To create a PDF version, a [puppeteer](https://github.com/puppeteer/puppeteer/)
 script is provided.
 
+## Downloads
+
+You may download generated PDF version from the [releases page](https://github.com/halimath/dnd30crs/releases/).
+
 ## How to develop
 
 You need [nodejs](https://nodejs.org/en/) and npm installed.
