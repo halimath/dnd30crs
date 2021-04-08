@@ -2,16 +2,15 @@ $color-dark: #333
 $color-half-dark: #666
 $color-light: #eee
 
-$distance: 0.5mm
-$field-height: 7mm
-$field-width: 8mm
-$border-width: 0.5mm
+$distance: 0.1rem
+$field-height: 1.6rem
+$border-width: 0.1rem
 
 body
     font-family: Verdana, Geneva, Tahoma, sans-serif
     
 .page
-    margin: 1mm    
+    margin: $distance
 
 *
     box-sizing: border-box
@@ -19,7 +18,7 @@ body
 
 .border, .field, .label 
     border: $border-width solid $color-dark
-    border-radius: 1mm
+    border-radius: 3 * $border-width
     font-size: 11pt
 
 
@@ -38,22 +37,14 @@ body
 .overview                     
     margin: $distance
 
-
-.row 
-    display: flex
-    align-items: center
-    margin-top: $distance
-    &.cols-top
-        align-items: start
-
-
 .field 
     height: $field-height
-    width: $field-width
     
-    margin: 0 $distance 0 $distance
+    margin: $distance $distance 0 $distance
 
     flex-grow: 1
+    flex-basis: 0
+
     text-align: center                
     color: $color-dark
 
@@ -102,81 +93,138 @@ body
             color: $color-light
 
 .spacer
-    width: $field-width
+    flex-grow: 1
     
+.row 
+    display: flex
+    align-items: center
+    
+    &.cols-top
+        align-items: start
+
+.cols
+    display: flex
+    flex-direction: row
+    
+    & > *
+        flex-grow: 1
+        flex-basis: 0
+        &:not(:first-child)
+            margin-left: 4 * $distance
+
 .vspace 
     margin-top: 0.5 * $field-height
 
 .vspace-large
     margin-top: $field-height
 
-.wide 
-    width: $field-width * 2
-
-.ultra-wide 
-    width: $field-width * 4
-
-.uber-wide 
-    width: $field-width * 8
+.very-high
+    min-height: $field-height * 1.6
 
 .ultra-high
     min-height: $field-height * 3.2
 
-.g1 
+.block
     flex-grow: 1
 
-.g2 
+.grow-0
+    flex-grow: 0
+
+.grow-1
+    flex-grow: 1
+
+.grow-2
     flex-grow: 2
 
-.cols
-    display: flex
-    flex-direction: row
+.grow-3
+    flex-grow: 3
+
+.grow-4
+    flex-grow: 4
+
+footer
+    position: fixed
+    bottom: 2mm
+    width: 100%
+    text-align: center
+    font-size: 0.4rem    
 
 .attributes
+    @extend .block
+    
     .label
-        width: 2 * $field-width
+        flex-basis: 0
+        flex-grow: 2
+
+.initiative
+    @extend .block        
+
+.ac
+    @extend .block        
 
 .saves
-    .label
-        width: 3 * $field-width
-
+    @extend .block
+    
 .attack
-    .label
-        width: 3.5 * $field-width
+    @extend .block
+
+.weapons
+    @extend .block        
+
+.armor
+    @extend .block        
 
 .skills
+    @extend .block
     margin-left: 5 * $distance
 
     .field
-        height: 0.78 * $field-height
+        width: 2rem
+        height: 0.7 * $field-height
+        flex-grow: 2
 
     .skill
-        width: 4 * $field-width
+        flex-basis: 0
+        flex-grow: 10
         font-size: 0.7rem
         &.small
             font-size: 0.5rem
 
-        &.untrained:after
-            content: "!"
+        &.untrained
+            font-weight: bold
     
     .skill-attribute
+        flex-basis: 0
+        flex-grow: 1
         font-size: 0.5rem
-        width: 0.7 * $field-width
 
     .check
-        border: 0.2mm solid black
-        width: 0.4 * $field-width
-        height: 0.4 *$field-width
+        flex-basis: 1
+        width: 0.5rem
+        border: $border-width solid black
+        height: 0.4 *$field-height
         margin-right: 2* $distance
+
+.armor
+    @extend .block        
+
+.equipment
+    @extend .block        
+
+@media screen
+    body
+        max-width: 1280px
+        margin: auto
+    
 
 @media print
     @page
         size: A4
-        margin: 2mm
     
     body
         width: 210mm
         height: 297mm
+        padding: 4mm
 
     .page
         page-break-before: always
