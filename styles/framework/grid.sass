@@ -23,6 +23,10 @@
         border-left: none
         border-right: none
 
+    &.no-decoration
+        @extend .line
+        border-bottom-color: transparent
+
     &.temp 
         border: $border-width dashed $color-dark
         .above 
