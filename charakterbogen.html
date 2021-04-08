@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>D&D 3.0 Charakterbogen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
 </head>
 
@@ -408,28 +409,7 @@
                     <div class="field label">Fertigkeiten</div>
                 </div>
                 <div class="row vspace">
-                    <div class="check"></div>
-                    <div class="skill">Alchemie</div>
-                    <div class="skill-attribute">IN</div>
-                    <div class="field">
-                        <div class="above">Mod.</div>
-                    </div>
-                    <strong>=</strong>
-                    <div class="field line">
-                        <div class="above">Attr.</div>
-                    </div>
-                    <strong>+</strong>
-                    <div class="field line">
-                        <div class="above">Rang</div>
-                    </div>
-                    <strong>+</strong>
-                    <div class="field line">
-                        <div class="above">Sonst.</div>
-                    </div>
-                    <strong>-</strong>
-                    <div class="field line">
-                        <div class="above">Rüst.</div>&ndash;
-                    </div>
+                    <!-- Skills will be inserted via Javascript -->
                 </div>
             </div>
         </div>
@@ -582,9 +562,7 @@
                 </div>
             </div> <!-- right column -->
         </div>
-        <!-- <div class="row">
-            <div class="field label">Geld &amp; Wertgegenstände</div>
-        </div> -->
+
         <div class="row vspace-large">
             <div class="cols grow-1">
                 <div class="field very-high"><div class="above label">GM</div></div>
@@ -597,7 +575,7 @@
     </div>
 
     <footer>
-        Charakterbogen für D&amp;D 3.0. Erstellt von <a href="mailto:halimath.wilanthaou@gmail.com">halimath.wilanthaou</a>.
+        Charakterbogen für D&amp;D 3.0. <a href="https://github.com/halimath/dnd30crs">github.com/halimath/dnd30crs</a>
         Veröffentlicht unter der Creative Commons Attribution License (cc-by) 4.0. 
         Version 0.1.0
     </footer>
@@ -607,20 +585,31 @@
             <div class="check"></div>
             <div class="skill"></div>
             <div class="skill-attribute"></div>
-            <div class="field"></div>
+            <div class="field">
+                <div class="above">Mod.</div>
+            </div>
             <strong>=</strong>
-            <div class="field line"></div>
+            <div class="field line">
+                <div class="above">Attr.</div>
+            </div>
             <strong>+</strong>
-            <div class="field line"></div>
+            <div class="field line">
+                <div class="above">Rang</div>
+            </div>
             <strong>+</strong>
-            <div class="field line"></div>
+            <div class="field line">
+                <div class="above">Sonst.</div>
+            </div>
             <strong>-</strong>
-            <div class="field line" data-apply-armor-penalty></div>
+            <div class="field line" data-apply-armor-penalty>
+                <div class="above">Rüst.</div>
+            </div>
         </div>
     </template>
 
     <script>
         const skills = [
+            ["Alchemie", false, "IN"],
             ["Auftreten", true, "CH"],
             ["Ausspähen", true, "IN"],
             ["Balancieren", true, "GE", true],
@@ -673,7 +662,7 @@
             const tplElement = document.querySelector("template#skill-row");
             const skillsElement = document.querySelector(".skills");
 
-            skills.forEach(skill => {
+            skills.forEach((skill, idx) => {
                 const row = tplElement.content.cloneNode(true);
                 const se = row.querySelector(".skill")
                 se.innerHTML = skill[0];
@@ -687,7 +676,11 @@
                 row.querySelector(".skill-attribute").textContent = skill[2].toUpperCase();
 
                 if (!skill[3]) {
-                    row.querySelector("[data-apply-armor-penalty]").innerHTML = "&ndash;";
+                    row.querySelector("[data-apply-armor-penalty]").innerHTML += "&ndash;";
+                }
+
+                if (idx > 0) {
+                    row.querySelectorAll(".above").forEach(e => e.parentElement.removeChild(e));
                 }
 
                 skillsElement.appendChild(row);

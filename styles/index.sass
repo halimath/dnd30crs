@@ -1,3 +1,5 @@
+@import "reset-css.css"
+
 $color-dark: #333
 $color-half-dark: #666
 $color-light: #eee
@@ -7,140 +9,30 @@ $field-height: 1.6rem
 $border-width: 0.1rem
 
 body
-    font-family: Verdana, Geneva, Tahoma, sans-serif
+    font-family: "Ubuntu"
+    font-size: 11px
+    line-height: 0.7rem
     
-.page
-    margin: $distance
-
 *
     box-sizing: border-box
 
-
-.border, .field, .label 
-    border: $border-width solid $color-dark
-    border-radius: 3 * $border-width
-    font-size: 11pt
-
-
-.logo 
-    margin: $distance
-    padding: $distance
-    font-size: 1.5rem
-    font-weight: bold
-    flex-grow: 0
-    display: flex
-    justify-content: center
-    align-items: center
-    text-align: center
-
-
-.overview                     
-    margin: $distance
-
-.field 
-    height: $field-height
+@media screen
+    body
+        max-width: 1280px
+        margin: auto
     
-    margin: $distance $distance 0 $distance
 
-    flex-grow: 1
-    flex-basis: 0
-
-    text-align: center                
-    color: $color-dark
-
-    &.line
-        border-top: none
-        border-left: none
-        border-right: none
-
-    &.temp 
-        border: $border-width dashed $color-dark
-        .above 
-            color: $color-half-dark
-
-    &.label 
-        display: flex
-        flex-direction: column
-        align-items: center
-        justify-content: center            
-
-        padding: $distance
-
-        font-size: 12pt
-        background-color: $color-dark
-        color: $color-light
-
-        small
-            font-size: 0.5rem
-                        
-    .annotate
-        margin-bottom: -0.9rem
-        font-size: 0.5rem
-        height: 0.8rem
-        text-align: left
+@media print
+    @page
+        size: A4
     
-    .above                     
-        margin-top: -0.9rem
-        font-size: 0.5rem
-        height: 0.8rem
-        display: flex
-        align-items: center
-        justify-content: center
-        border-bottom-left-radius: 0
-        border-bottom-right-radius: 0
-        &.label
-            background-color: $color-dark
-            color: $color-light
+    body
+        width: 210mm
+        height: 297mm
+        padding: 4mm
 
-.spacer
-    flex-grow: 1
-    
-.row 
-    display: flex
-    align-items: center
-    
-    &.cols-top
-        align-items: start
-
-.cols
-    display: flex
-    flex-direction: row
-    
-    & > *
-        flex-grow: 1
-        flex-basis: 0
-        &:not(:first-child)
-            margin-left: 4 * $distance
-
-.vspace 
-    margin-top: 0.5 * $field-height
-
-.vspace-large
-    margin-top: $field-height
-
-.very-high
-    min-height: $field-height * 1.6
-
-.ultra-high
-    min-height: $field-height * 3.2
-
-.block
-    flex-grow: 1
-
-.grow-0
-    flex-grow: 0
-
-.grow-1
-    flex-grow: 1
-
-.grow-2
-    flex-grow: 2
-
-.grow-3
-    flex-grow: 3
-
-.grow-4
-    flex-grow: 4
+    .page
+        page-break-before: always
 
 footer
     position: fixed
@@ -148,6 +40,23 @@ footer
     width: 100%
     text-align: center
     font-size: 0.4rem    
+
+@import "./grid"
+
+.logo 
+    margin: $distance
+    padding: $distance
+    font-size: 1.5rem
+    line-height: 1.8rem
+    font-weight: bold
+    flex-grow: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    text-align: center
+
+.overview                     
+    margin: $distance    
 
 .attributes
     @extend .block
@@ -210,21 +119,3 @@ footer
 
 .equipment
     @extend .block        
-
-@media screen
-    body
-        max-width: 1280px
-        margin: auto
-    
-
-@media print
-    @page
-        size: A4
-    
-    body
-        width: 210mm
-        height: 297mm
-        padding: 4mm
-
-    .page
-        page-break-before: always

@@ -1,0 +1,112 @@
+.page
+    margin: $distance
+
+.border, .field, .label 
+    border: $border-width solid $color-dark
+    border-radius: 3 * $border-width
+    font-size: 11pt
+
+.field 
+    height: $field-height
+    
+    margin: $distance $distance 0 $distance
+
+    flex-grow: 1
+    flex-basis: 0
+
+    text-align: center                
+    color: $color-dark
+
+    &.line
+        border-top: none
+        border-left: none
+        border-right: none
+
+    &.temp 
+        border: $border-width dashed $color-dark
+        .above 
+            color: $color-half-dark
+
+    &.label 
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center            
+
+        padding: $distance
+
+        font-size: 12pt
+        background-color: $color-dark
+        color: $color-light
+
+        small
+            font-size: 0.5rem
+                        
+    .annotate
+        margin-bottom: -0.9rem
+        font-size: 0.5rem
+        height: 0.8rem
+        text-align: left
+    
+    .above                     
+        margin-top: -0.9rem
+        font-size: 0.5rem
+        height: 0.8rem
+        display: flex
+        align-items: center
+        justify-content: center
+        border-bottom-left-radius: 0
+        border-bottom-right-radius: 0
+        &.label
+            background-color: $color-dark
+            color: $color-light
+
+.spacer
+    flex-grow: 1
+    
+.row 
+    display: flex
+    align-items: center
+    
+    &.cols-top
+        align-items: start
+
+.cols
+    display: flex
+    flex-direction: row
+    
+    & > *
+        flex-grow: 1
+        flex-basis: 0
+        &:not(:first-child)
+            margin-left: 4 * $distance
+
+.vspace 
+    margin-top: 0.5 * $field-height
+
+.vspace-large
+    margin-top: $field-height
+
+.very-high
+    min-height: $field-height * 1.6
+
+.ultra-high
+    min-height: $field-height * 3.2
+
+.block
+    flex-grow: 1
+
+.grow-0
+    flex-grow: 0
+
+.grow-1
+    flex-grow: 1
+
+.grow-2
+    flex-grow: 2
+
+.grow-3
+    flex-grow: 3
+
+.grow-4
+    flex-grow: 4

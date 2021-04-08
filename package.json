@@ -2,11 +2,13 @@
     "name": "dnd-character-record-sheet",
     "version": "0.1.0",
     "devDependencies": {
-        "mustache": "^4.2.0",
-        "sass": "^1.32.8"
+        "reset-css": "^5.0.1",
+        "sass": "^1.32.8",
+        "puppeteer": "^8.0.0"
     },
     "scripts": {
         "build": "sass styles/index.sass styles.css",
-        "start": "sass --watch styles/index.sass styles.css"
+        "start": "sass --watch styles/index.sass styles.css",
+        "create-pdf": "node ./.scripts/create-pdf.js"
     }
 }
