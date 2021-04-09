@@ -1,6 +1,6 @@
 {
     "name": "dnd-character-record-sheet",
-    "version": "0.2.1-pre",
+    "version": "0.2.1",
     "description": "A character record sheet for D&D 3.0",
     "author": {
         "name": "Alexander Metzner",
