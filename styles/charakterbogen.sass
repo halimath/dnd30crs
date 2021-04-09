@@ -33,32 +33,33 @@
     @extend .block
     margin-left: 5 * $distance
 
-    .field
-        width: 2rem
-        height: 0.7 * $field-height
-        flex-grow: 2
-
     .skill
-        flex-basis: 0
-        flex-grow: 10
-        font-size: 0.7rem
-        &.small
+        .field
+            width: 2rem
+            height: 0.697 * $field-height
+            flex-grow: 2
+
+        .skill-name
+            flex-basis: 0
+            flex-grow: 10
+            font-size: 0.7rem
+            &.small
+                font-size: 0.5rem
+
+            &.untrained
+                font-weight: bold
+        
+        .skill-attribute
+            flex-basis: 0
+            flex-grow: 1
             font-size: 0.5rem
 
-        &.untrained
-            font-weight: bold
-    
-    .skill-attribute
-        flex-basis: 0
-        flex-grow: 1
-        font-size: 0.5rem
-
-    .check
-        flex-basis: 1
-        width: 0.5rem
-        border: $border-width solid black
-        height: 0.4 *$field-height
-        margin-right: 2* $distance
+        .check
+            flex-basis: 1
+            width: 0.5rem
+            border: $border-width solid black
+            height: 0.4 *$field-height
+            margin-right: 2* $distance
 
 .armor
     @extend .block        

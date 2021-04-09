@@ -1,17 +1,22 @@
 {
     "name": "dnd-character-record-sheet",
     "version": "0.2.1-pre",
+    "description": "A character record sheet for D&D 3.0",
+    "author": {
+        "name": "Alexander Metzner",
+        "email": "alexander.metzner@gmail.com"
+    },
     "devDependencies": {
         "reset-css": "^5.0.1",
         "puppeteer": "^8.0.0",
         "sass": "^1.32.8",
         "gulp-cli": "^2.3.0",
         "gulp": "^4.0.2",
-        "gulp-sass": "^4.1.0"
+        "gulp-sass": "^4.1.0",
+        "through2": "^4.0.2"
     },
     "scripts": {
-        "build": "gulp sass",
-        "start": "gulp sass:watch",
-        "create-pdf": "gulp pdf"
+        "build": "gulp all",
+        "start": "gulp all:watch"
     }
 }

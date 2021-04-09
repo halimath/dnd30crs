@@ -8,6 +8,9 @@
 .field 
     @extend .border
 
+    position: relative
+    padding-top: 0.1rem
+
     height: $field-height
     
     margin: $distance $distance 0 $distance
@@ -17,6 +20,8 @@
 
     text-align: center                
     color: $color-dark
+
+    line-height: 1
 
     &.line
         border-top-color: transparent
@@ -33,21 +38,28 @@
             color: $color-half-dark
                         
     .tag
-        font-size: 0.5rem
+        font-size: 0.4rem
         height: 0.8rem
         text-align: left
     
         &.above                     
-            margin-top: -0.8rem
+            // margin-top: -0.8rem
+            position: absolute
+            top: -0.8rem
+            width: 100%
+
             display: flex
             align-items: center
             justify-content: center
+            
             &.dark
                 @extend .border
+                font-size: 0.5rem
                 border-bottom-left-radius: 0
                 border-bottom-right-radius: 0
                 background-color: $color-dark
                 color: $color-light
+                    
 
 .label 
     @extend .field
@@ -59,7 +71,7 @@
 
     padding: $distance
 
-    font-size: 12pt
+    font-size: 10pt
     background-color: $color-light
     color: $color-dark
 
@@ -67,9 +79,8 @@
         background-color: $color-dark
         color: $color-light
 
-
     small
-        font-size: 0.5rem
+        font-size: 0.4rem
 
 .spacer
     flex-grow: 1
@@ -107,16 +118,16 @@
     flex-grow: 1
 
 .grow-0
-    flex-grow: 0
+    flex-grow: 0 !important
 
 .grow-1
-    flex-grow: 1
+    flex-grow: 1 !important
 
 .grow-2
-    flex-grow: 2
+    flex-grow: 2 !important
 
 .grow-3
-    flex-grow: 3
+    flex-grow: 3 !important
 
 .grow-4
-    flex-grow: 4
+    flex-grow: 4 !important
