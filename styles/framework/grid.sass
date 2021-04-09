@@ -33,12 +33,13 @@
         border-bottom-color: transparent
 
     &.temp 
-        border: $border-width dashed $color-dark
+        border-style: dashed
+        border-color: $color-half-dark
         .above 
             color: $color-half-dark
                         
     .tag
-        font-size: 0.4rem
+        font-size: 0.45rem
         height: 0.8rem
         text-align: left
     
@@ -63,6 +64,7 @@
 
 .label 
     @extend .field
+    border: none
 
     display: flex
     flex-direction: column
@@ -131,3 +133,6 @@
 
 .grow-4
     flex-grow: 4 !important
+
+.grow-5
+    flex-grow: 5 !important
